@@ -83,7 +83,7 @@ public class TestcaseRunner {
     if (testDeviceEntity.getCreateSessionAtCaseLevel()) {
       startSession();
     } else {
-      restartCurrentSession();
+      //restartCurrentSession();
     }
     environmentRunResult.setSessionCreatedOn(new Timestamp(System.currentTimeMillis()));
     ResultConstant result = ResultConstant.SUCCESS;

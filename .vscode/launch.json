@@ -1,0 +1,61 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    
+        {
+            "type": "java",
+            "name": "Launch AutomatorTest",
+            "request": "launch",
+            "mainClass": "tests.AutomatorTest",
+            "projectName": "testsigma-automator"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debug Launcher Application",
+            "request": "launch",
+            "mainClass": "com.testsigma.agent.launcher.Application",
+            "projectName": "testsigma-agent-launcher",
+            "vmArgs": "-Dagent.wrapper.port=60972 -Dagent.wrapper.background=false",
+            "classPaths": [
+                "/Users/tiago/DEV/DELTA/nailab/agent-launcher/target/classes",
+                "/Users/tiago/DEV/DELTA/nailab/agent-launcher/target/agent-launcher.jar",
+                "/Users/tiago/DEV/DELTA/nailab/agent/target/agent.jar",
+                "/Users/tiago/DEV/DELTA/nailab/runtime/lib/*",
+                "/Users/tiago/DEV/DELTA/nailab/runtime/data/additional_libs/*"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Launch TestsigmaAgent",
+            "request": "launch",
+            "mainClass": "com.testsigma.agent.TestsigmaAgent",
+            "projectName": "testsigma-agent",
+            "vmArgs": "-Dagent.wrapper.port=60972 -Dagent.wrapper.background=false",
+            "classPaths": [
+                "/Users/tiago/DEV/DELTA/nailab/agent/target/classes",
+                "/Users/tiago/DEV/DELTA/nailab/agent/target/lib/*",
+                "/Users/tiago/DEV/DELTA/nailab/runtime/data/additional_libs/*"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Launch TestsigmaWebApplication",
+            "request": "launch",
+            "mainClass": "com.testsigma.TestsigmaWebApplication",
+            "projectName": "testsigma-server",
+            "classPaths": [
+                "/Users/tiago/DEV/DELTA/nailab/runtime/testsigma-server.jar",
+                "/Users/tiago/DEV/DELTA/nailab/runtime/server/lib/*"
+            ]
+        }
+    ]
+}

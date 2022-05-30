@@ -150,7 +150,7 @@ public abstract class TestsuiteRunner {
     populateThreadContextData(testSuiteEntity, testSuiteResult);
     log.debug("Running test suite - " + testSuiteEntity.getName());
     if (!testDeviceEntity.getCreateSessionAtCaseLevel()) {
-      restartCurrentSession(testSuiteResult);
+      //restartCurrentSession(testSuiteResult);
     }
     List<TestCaseEntity> testCaseEntityList = testSuiteEntity.getTestCases();
     List<TestCaseResult> testCasesResult = new ArrayList<>();

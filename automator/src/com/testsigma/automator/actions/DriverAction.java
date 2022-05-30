@@ -20,8 +20,12 @@ import java.util.concurrent.TimeUnit;
 @Log4j2
 public abstract class DriverAction extends Action {
 
-  @Setter
+  
   private WebDriver driver;
+
+  public void setDriver(WebDriver driver) {
+    this.driver = driver;
+  }
 
   protected WebDriver getDriver() {
     return this.driver;

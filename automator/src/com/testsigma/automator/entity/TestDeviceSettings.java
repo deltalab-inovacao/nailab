@@ -12,6 +12,12 @@ public class TestDeviceSettings {
   @NotNull
   private String browser;
   private String browserVersion;
+  public String getBrowserVersion() {
+    return browserVersion;
+  }
+  public void setBrowserVersion(String browserVersion) {
+    this.browserVersion = browserVersion;
+  }
   @NotNull
   private Platform platform;
   private String appiumUrl;

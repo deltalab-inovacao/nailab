@@ -17,6 +17,8 @@ public class PathUtil {
   private static PathUtil _instance = null;
 
   @Getter
+  private String configPath = null;
+  @Getter
   private String driversPath = null;
   @Getter
   private String rootPath = null;
@@ -56,8 +58,8 @@ public class PathUtil {
     if (initialized & !reset) {
       return;
     }
-    rootPath = System.getProperty("TS_ROOT_DIR");
-    testsigmaDataPath = System.getProperty("TS_DATA_DIR");
+    rootPath = System.getenv("TS_ROOT_DIR");
+    testsigmaDataPath = System.getenv("TS_DATA_DIR");
 
     driversPath = rootPath + File.separator + "drivers";
     iosPath = rootPath + File.separator + "ios";

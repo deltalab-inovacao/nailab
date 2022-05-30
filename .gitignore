@@ -5,3 +5,14 @@ out/**
 bin/**
 logs/**
 *.zip
+runtime/**
+null/agent.properties
+null/drivers/googlechrome/100.0/chromedriver
+null/drivers/googlechrome/99.0/chromedriver
+gson/258.json
+gson/260_com.testsigma.automator.entity.TestDeviceEntity.json
+gson/260_com.testsigma.automator.entity.WebDriverSettingsDTO.json
+gson/260_result.json
+gson/262.json
+gson/3370_com.testsigma.automator.entity.TestCaseEntity.json
+gson/agentConfig.json

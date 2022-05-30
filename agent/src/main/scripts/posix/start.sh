@@ -64,4 +64,13 @@ fi
 
 mkdir -p "$TS_DATA_DIR"
 
-"$TS_ROOT_DIR/jre/bin/java" -DTS_DATA_DIR="$TS_DATA_DIR" -DTS_ROOT_DIR="$TS_ROOT_DIR" -DTS_AGENT_JAR="$TS_AGENT_JAR_PATH" -Dlogging.level.="$LOGGING_LEVEL" -cp "$MAIN_JAR_FILE" com.testsigma.agent.launcher.Application start
+echo "export DTS_AGENT_JAR=$TS_AGENT_JAR_PATH"
+echo "export TS_ROOT_DIR=$ROOT_FOLDER"
+echo "export TS_AGENT_JAR_PATH=$ROOT_FOLDER"
+echo "export MAIN_JAR_FILE=$MAIN_JAR_FILE"
+echo "export TS_AGENT_JAR=$TS_AGENT_JAR_PATH"
+echo "export TS_DATA_DIR=$TS_DATA_DIR"
+
+
+
+#"$TS_ROOT_DIR/jre/bin/java" -DTS_DATA_DIR="$TS_DATA_DIR" -DTS_ROOT_DIR="$TS_ROOT_DIR" -DTS_AGENT_JAR="$TS_AGENT_JAR_PATH" -Dlogging.level.="$LOGGING_LEVEL" -cp "$MAIN_JAR_FILE" com.testsigma.agent.launcher.Application start

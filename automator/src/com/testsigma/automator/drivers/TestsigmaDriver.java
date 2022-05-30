@@ -11,12 +11,15 @@ package com.testsigma.automator.drivers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableMap;
+import com.testsigma.automator.AppBridge;
 import com.testsigma.automator.AutomatorConfig;
 import com.testsigma.automator.entity.*;
 import com.testsigma.automator.exceptions.AutomatorException;
 import com.testsigma.automator.runners.EnvironmentRunner;
 import lombok.Data;
 import lombok.extern.log4j.Log4j2;
+import tests.AutomatorTest;
+
 import org.apache.commons.lang3.ObjectUtils;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -37,6 +40,14 @@ public class TestsigmaDriver {
   protected TestDeviceSettings settings;
   protected ExecutionLabType executionLabType;
   protected List<WebDriverCapability> capabilities;
+  public List<WebDriverCapability> getCapabilities() {
+    return capabilities;
+  }
+
+  public void setCapabilities(List<WebDriverCapability> capabilities) {
+    this.capabilities = capabilities;
+  }
+
   protected URL remoteServerURL;
   protected String executionName;
   protected WebDriverSettingsDTO webDriverSettings;
@@ -134,8 +145,12 @@ public class TestsigmaDriver {
   }
 
   protected void setDriverCapabilities() throws AutomatorException {
-    webDriverSettings = AutomatorConfig.getInstance().getAppBridge().getWebDriverSettings(
-      this.getTestDeviceEntity().getEnvironmentResultId());
+    AutomatorConfig ac = AutomatorConfig.getInstance();
+    AppBridge appBridge = ac.getAppBridge();
+    TestDeviceEntity tde = this.getTestDeviceEntity();
+    Long environmentResultId = tde.getEnvironmentResultId();
+    webDriverSettings = appBridge.getWebDriverSettings(environmentResultId);
+    
     setUserNameAndAccessKey();
   }
 

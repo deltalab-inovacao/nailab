@@ -37,7 +37,7 @@ public class WrapperConnector {
       if (wrapperPortStr != null) {
         try {
           int wrapperPort = Integer.parseInt(wrapperPortStr);
-          log.info("Connecting To Wrapper Socket Using Port - " + wrapperPortStr);
+          log.info("Connecting To Wrapper Socket Using Port - localhost:" + wrapperPortStr);
           wrapperSocket = new Socket("localhost", wrapperPort);
           int data = wrapperSocket.getInputStream().read();
           while (data != -1) {

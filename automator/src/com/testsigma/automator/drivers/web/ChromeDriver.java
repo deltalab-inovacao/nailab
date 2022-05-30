@@ -31,10 +31,14 @@ public class ChromeDriver extends WebDriver {
 
   @Override
   protected void createDriverInstance(DesiredCapabilities desiredCapabilities) throws AutomatorException {
-    if (remoteServerURL != null) {
-      remoteWebDriver = new RemoteWebDriver(remoteServerURL, chromeOptions.merge(desiredCapabilities));
-    } else {
-      remoteWebDriver = new org.openqa.selenium.chrome.ChromeDriver(chromeOptions.merge(desiredCapabilities));
+    try{
+      if (remoteServerURL != null) {
+        remoteWebDriver = new RemoteWebDriver(remoteServerURL, chromeOptions.merge(desiredCapabilities));
+      } else {
+        remoteWebDriver = new org.openqa.selenium.chrome.ChromeDriver(chromeOptions.merge(desiredCapabilities));
+      }
+    } catch (Exception e) {
+      remoteWebDriver = null;
     }
   }
 

@@ -92,6 +92,7 @@ public class Launcher {
         });
 
         command = launcher.agentStartCommand(launcher.wrapperServer.getLocalPort());
+        log.info("Starting Agent Process: {}", command);
         launcher.agentProcess = launcher.startAgentProcess(command);
         log.debug("Waiting for Agent to start...");
         int agentStartupChecks = 60;
@@ -195,6 +196,12 @@ public class Launcher {
   }
 
   private List<String> agentStartCommand(int wrapperPort) throws URISyntaxException {
+    /**
+     * -agentlib:jdwp=transport=dt_socket,server=n,suspend=y,address=localhost:55348 
+     * -Dagent.wrapper.port=60972 -Dagent.wrapper.background=false -XX:+ShowCodeDetailsInExceptionMessages 
+     * @/var/folders/vz/82y984kd1hl1yxxt9mfr619c0000gn/T/cp_bcil5ob1qpnmg5ijjdcosg0px.argfile 
+     * com.testsigma.agent.TestsigmaAgent
+     */
     RuntimeMXBean runtimeMXBean = ManagementFactory.getRuntimeMXBean();
     List<String> list = runtimeMXBean.getInputArguments();
     List<String> commandLineParameters = new ArrayList<>();
@@ -205,7 +212,7 @@ public class Launcher {
     }
     List<String> command = new ArrayList<>();
     command.add(getJavaPath());
-    command.addAll(commandLineParameters);
+    //command.addAll(commandLineParameters);
     command.add("-cp");
     command.add(getAgentClassPath());
     command.add("-Dagent.wrapper.port=" + wrapperPort);
@@ -281,22 +288,23 @@ public class Launcher {
   }
 
   private String getJavaPath() {
-    String rootDir = System.getProperty("TS_ROOT_DIR");
+    String rootDir = System.getenv("TS_ROOT_DIR");
     if (StringUtils.isNotBlank(rootDir)) {
       System.setProperty("java.home", rootDir + File.separator + "jre");
     }
-    return System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+    String comm = System.getProperty("java.home") + File.separator + "bin" + File.separator + "java";
+    return comm;
   }
 
   private String getAgentClassPath() throws URISyntaxException {
-    String classPath = System.getProperty("TS_AGENT_JAR") + File.separator + "lib" + File.separator + "*";
+    String classPath = System.getenv("TS_AGENT_JAR") + File.separator + "lib" + File.separator + "*";
     String additionalClassPath = Config.getDataDir() + File.separator + "additional_libs" + File.separator + "*";
     String agentJarPath = getAgentJarPath();
     return agentJarPath + classPathSeparator + classPath + classPathSeparator + additionalClassPath;
   }
 
   private String getAgentJarPath() throws URISyntaxException {
-    String agentJarDir = System.getProperty("TS_AGENT_JAR");
+    String agentJarDir = System.getenv("TS_AGENT_JAR");
     if (StringUtils.isNotBlank(agentJarDir)) {
       return agentJarDir + File.separator + "agent.jar";
     }
@@ -405,7 +413,8 @@ public class Launcher {
     processBuilder.redirectInput(ProcessBuilder.Redirect.INHERIT);
     processBuilder.redirectOutput(ProcessBuilder.Redirect.INHERIT);
     processBuilder.redirectError(ProcessBuilder.Redirect.INHERIT);
-    return processBuilder.start();
+    Process start = processBuilder.start();
+    return start;
   }
 
   private void setupFrame() {

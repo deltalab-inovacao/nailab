@@ -1,30 +1,15 @@
-[![Latest release](https://img.shields.io/github/v/release/testsigmahq/testsigma)](https://github.com/testsigmahq/testsigma/releases/latest)
-[![Docs](https://img.shields.io/badge/docs-latest-brightgreen)](https://testsigma.com/docs)
-<a href="https://discord.gg/invite/5caWS7R6QX"><img src="https://img.shields.io/badge/chat-discord-brightgreen.svg?logo=discord&style=flat"></a>
-<a href="https://testsigma.com/newsletter"><img src="https://img.shields.io/badge/newsletter-subscribe-yellow.svg?style=flat"></a>
+## Conceito
+
+Humanizamos o processo de desenvolvimento de testes automatizados através de uma interface de linguagem natural ordenando os passos a serem executados pelos robôs.
 
 
+## Geral
 
-<a href="https://testsigma.com/signup?utm_source=github&utm_medium=social">![testsigma-os-banner](https://docs.testsigma.com/images/github/testsigma-opensource-banner-new.png)</a>
+Humanizamos o processo de desenvolvimento de testes automatizados através de uma interface de linguagem natural ordenando os passos a serem executados pelos robôs.
 
-<p align="center">
-  <a href="https://testsigma.com/signup?utm_source=github&utm_medium=social" target="_bank">Getting started</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://testsigma.com/docs/?utm_source=github&utm_medium=social" target="_bank">Docs</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://testsigma.com/tutorials/?utm_source=github&utm_medium=social" target="_bank">Tutorials</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://github.com/testsigmahq/testsigma/discussions" target="_bank">Discussions</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://discord.com/invite/5caWS7R6QX" target="_bank">Discord</a>
-  &nbsp; &#8901; &nbsp;
-  <a href="https://www.youtube.com/testsigma" target="_bank">YouTube</a>
-</p>
-&emsp;
-&emsp;
-&emsp;
+Atualmente o desenvolvimento de testes automatizados e RPA necessitam de profissionais especializados em ferramentas pouco acessíveis. Nossa plataforma consiste em interpretar comandos naturais e casos de teste escritos por humanos, sem especialização de desenvolvimento, para instruções de maquina que permitam a execução por robôs. Trazemos acessibilidade através da identificação de elementos de tela, parametrização e configuração de ambiente. Fazemos isso a através da interpretação de comandos escritos em português ou inglês, sugerimos o comando mais próximo por análise semântica e indicamos os parâmetros necessários. Tudo bem português. O usuário pode executar o comando e ver o resultado da execução e o código  gerado na hora.
 
-## Overview
+Based-on: 
 Testsigma is an open-source, extensible test automation platform that works out of the box. Rapidly(5X faster) automate web, mobile app, and API tests in plain English. 
   
   - Eliminate complex setups, multiple tools and frameworks.
@@ -36,35 +21,15 @@ Testsigma is an open-source, extensible test automation platform that works out 
   - Seamless integrations with CI/CD, bug reporting, product management tools, & collaboration tools & test labs for continuous testing.
   - Extend the platform with 100+ pre-built add-ons (for custom actions, data generators, integrations) or build your own with Testsigma SDKs.
 
-
-[![Testsigma Overview](https://docs.testsigma.com/images/github/banner-video.png)](https://docs.testsigma.com/videos/testsigma-overview.mp4)
-
-
-## **Quick start: One click deployment on Testsigma Cloud**
-
-The easiest way to start your automation journey is with Testsigma Cloud.
-
-
-<a href="https://testsigma.com/signup?utm_source=github&utm_medium=social" target="_blank">
-<img src="https://docs.testsigma.com/images/github/deploy-2-testsigma-cloud.svg?1234" width="30%" alt="How to automate testing with Testsigma" /></a>
-
-<br/>
-<br/>
-Once you deploy, you can follow the below tutorials to get started
-
-- [Automating Web Applications](https://testsigma.com/tutorials/getting-started/automate-web-applications/)
-- [Automating Mobile Web Applications](https://testsigma.com/tutorials/getting-started/automate-mobile-web-applications/)
-- [Automating iOS Apps](https://testsigma.com/tutorials/getting-started/automate-android-applications/)
-- [Automating Android Apps](https://testsigma.com/tutorials/getting-started/automate-ios-applications/)
-- [Automating REST API Testing](https://testsigma.com/tutorials/getting-started/automate-rest-apis/)
-
-## **Other deployment options**
-We have 2 more deployment options to choose from
-
-1. [Using Docker](https://testsigma.com/docs/getting-started/setup/docker/)
-2. [Using Downloadable Package](https://testsigma.com/docs/getting-started/setup/downloadable-package/) 
-
 ## **Features**
+### MVP
+
+#### Desenvolvimento de Teste
+- Interpretar comando humanos em portugues para script de teste
+- Exportar script de teste
+- Integrar com test-link
+
+### Roadmap
 
 #### Test Development
 - Write code-agnostic, human-readable tests in plain English.
@@ -90,7 +55,41 @@ We have 2 more deployment options to choose from
 #### Visual Testing
 - Enable visual testing with a toggle while creating a test plan.
 
-[See more on our website](https://testsigma.com)
+
+# refs
+
+## **Quick start: One click deployment on Testsigma Cloud**
+
+## **Other deployment options**
+We have 2 more deployment options to choose from
+
+1. [Using Docker](https://testsigma.com/docs/getting-started/setup/docker/)
+2. [Using Downloadable Package](https://testsigma.com/docs/getting-started/setup/downloadable-package/) 
+
+#### Test Development
+- Write code-agnostic, human-readable tests in plain English.
+- Generate airtight test scripts for web and mobile apps using Test Recorder.
+- Integrate automated API calls within your functional/UI test steps.
+
+#### Data-Driven/Parameterized Testing
+- Upload test data sets as (XLS) files or create within Testsigma.
+- Use built-in data generators for mock test data.
+- Create your own custom data generators as add-ons.
+
+#### Results & Reports
+- Debug using screenshots, videos, text logs, and more. 
+- Generate custom reports at test, module, test suite, and device/system levels. 
+
+#### Integrations
+- Integrate with any CI tool to run regression tests at every build.
+- Integrate with Collaboration tools,  Bug Reporting tools, Product Management tools, Cloud based Test Labs
+
+#### Unified Platform
+- Automate Web, Mobile Web, Android, iOS apps, and API testing using one platform
+
+#### Visual Testing
+- Enable visual testing with a toggle while creating a test plan.
+
 
 ## **Build & extend the platform with Add-ons**
 

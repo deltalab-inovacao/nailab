@@ -9,6 +9,8 @@ import com.testsigma.automator.entity.TestDeviceEntity;
 import com.testsigma.automator.exceptions.AgentDeletedException;
 import com.testsigma.automator.http.HttpResponse;
 import lombok.extern.log4j.Log4j2;
+import tests.AutomatorTest;
+
 import org.apache.http.Header;
 import org.apache.logging.log4j.ThreadContext;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,8 +58,13 @@ public class RunScheduler extends BaseScheduler {
     }
   }
 
-  private void startExecutions(TestDeviceEntity testDeviceEntity) {
+
+  public void startExecutions(TestDeviceEntity testDeviceEntity) {
+    boolean save = true;
     if (testDeviceEntity != null) {
+      if (save){
+        AutomatorTest.save(testDeviceEntity);
+      }
       log.info("The EnvironmentEntity - " + testDeviceEntity.getId() + " executions returned from servers....");
       TestPlanRunTask task = new TestPlanRunTask(testDeviceEntity);
       task.setName("ExecutionTask - Environment Result ID [" + testDeviceEntity.getEnvironmentResultId() + "]");

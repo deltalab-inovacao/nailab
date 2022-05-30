@@ -45,6 +45,14 @@ public class TestCaseStepEntity implements Cloneable {
   private String testDataProfileName;
   private String action;
   private String snippetClass;
+  public String getSnippetClass() {
+    return snippetClass;
+  }
+
+  public void setSnippetClass(String snippetClass) {
+    this.snippetClass = snippetClass;
+  }
+
   private StepDetails stepDetails;
   private Map<String, AddonTestStepTestData> addonTestData;
   private Map<String, AddonElementData> addonElements;
@@ -65,4 +73,5 @@ public class TestCaseStepEntity implements Cloneable {
     exeStepEntity.setTestCaseSteps(steps);
     return exeStepEntity;
   }
+  
 }

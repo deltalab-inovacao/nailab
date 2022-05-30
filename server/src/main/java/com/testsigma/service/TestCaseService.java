@@ -71,6 +71,16 @@ public class TestCaseService extends XMLExportImportService<TestCase> {
   private final TestCaseTypeService testCaseTypeService;
   private final TestDataProfileService testDataService;
 
+  public List<TestCaseDTO> findAll(Pageable pageable) {
+    List<TestCase> testCases = new ArrayList<TestCase>();
+    // testCaseRepository.findAll().forEach(testCase -> {
+    //   testCase.setTestSteps(testStepService.findAllByTestCaseId(testCase.getId()));
+    //   testCases.add(testCase);      
+    // });
+    List<TestCaseDTO> testCaseDTOs = mapper.mapDTOs(testCaseRepository.findAll());
+    return testCaseDTOs;
+  }
+
   public Page<TestCase> findAll(Specification<TestCase> specification, Pageable pageable) {
     return testCaseRepository.findAll(specification, pageable);
   }
@@ -94,6 +104,13 @@ public class TestCaseService extends XMLExportImportService<TestCase> {
   public TestCase find(Long id) throws ResourceNotFoundException {
     return testCaseRepository.findById(id).orElseThrow(
       () -> new ResourceNotFoundException("Couldn't find TestCase resource with id:" + id));
+  }
+  public TestCase detailedFind(Long id) throws ResourceNotFoundException {
+    TestCase testCase = testCaseRepository.findById(id).orElseThrow(
+      () -> new ResourceNotFoundException("Couldn't find TestCase resource with id:" + id));
+      List<TestStep> steps = testStepService.findAllByTestCaseId(testCase.getId());
+      testCase.setTestSteps(new HashSet(steps));
+    return testCase;
   }
 
   public TestCaseEntityDTO find(Long id, Long environmentResultId, String testDataSetName, Long testCaseResultId) {

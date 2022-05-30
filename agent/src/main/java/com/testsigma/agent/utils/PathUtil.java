@@ -73,8 +73,8 @@ public class PathUtil {
       return;
     }
     classPathSeparator = (SystemUtils.IS_OS_WINDOWS ? ";" : ":");
-    rootPath = System.getProperty("TS_ROOT_DIR");
-    testsigmaDataPath = System.getProperty("TS_DATA_DIR");
+    rootPath = System.getenv("TS_ROOT_DIR");
+    testsigmaDataPath = System.getenv("TS_DATA_DIR");
 
     driversPath = rootPath + File.separator + "drivers";
     jrePath = rootPath + File.separator + "jre";
